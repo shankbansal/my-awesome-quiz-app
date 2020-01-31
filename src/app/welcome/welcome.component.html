@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row h-100 justify-content-center">
+    <div class="col-3 mt-auto mb-auto" *ngFor="let quiz of quizzes">
+      <div class="card shadow justify-content-between">
+        <a class="btn" href="/{{ quiz.fileName }}">{{ quiz.label }}</a>
+      </div>
+    </div>
+  </div>
+</div>

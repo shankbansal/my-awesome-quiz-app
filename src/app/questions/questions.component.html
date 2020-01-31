@@ -1,0 +1,30 @@
+<div class="container">
+<div class="row h-100 justify-content-center">
+<div class="col mt-auto mb-auto">
+  <div class="card shadow">
+    <div class="m-auto">
+
+<div *ngIf="quiz && !questions" class="spinner-grow text-primary"></div>
+
+<div class="quiz" *ngIf="questions">
+
+  <div class="questions" *ngIf="!showResults">
+    <app-question-from
+      [question]="questions[currentQuestionIndex]"
+      (onChoiceMade)="updateChoice($event)">
+    </app-question-from>
+
+    <button
+      class="btn btn-success"
+      (click)="nextOrViewResults()"
+      [disabled]="!answers.values[currentQuestionIndex]"
+    >{{currentQuestionIndex === questions.length - 1 ? 'View results' : 'Next'}}</button>
+  </div>
+
+  <app-results *ngIf="showResults" [answers]="answers"></app-results>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
